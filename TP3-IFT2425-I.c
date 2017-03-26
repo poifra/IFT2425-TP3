@@ -315,10 +315,9 @@ int main(int argc, char** argv)
   for (int i = 0; i <= NbInt; i++) {
     float x = i / (float)NbInt;
     VctPts[i] = 4 * sqrt(1 - x*x);
-    if (result > 0) {
+    if (i > 0) {
       result += (VctPts[i] + VctPts[i-1]) * intervalLen / 2;
     }
-    printf("%f\n", VctPts[i]);
   }
   printf("PI: %f\n", result);
 
