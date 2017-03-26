@@ -70,7 +70,7 @@ Window fabrique_window(char *nom_fen, int x, int y, int width, int height, int z
   {
     width /= -zoom; height /= -zoom;
   }
-  if (zoom > 0) 
+  if (zoom > 0)
   {
     width *= zoom;  height *= zoom;
   }
@@ -310,7 +310,17 @@ int main(int argc, char** argv)
 
 //Programmer ici
 
-
+  result = 0;
+  float intervalLen = 1 / (float)NbInt;
+  for (int i = 0; i <= NbInt; i++) {
+    float x = i / (float)NbInt;
+    VctPts[i] = 4 * sqrt(1 - x*x);
+    if (result > 0) {
+      result += (VctPts[i] + VctPts[i-1]) * intervalLen / 2;
+    }
+    printf("%f\n", VctPts[i]);
+  }
+  printf("PI: %f\n", result);
 
 //End
 
