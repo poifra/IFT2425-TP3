@@ -338,19 +338,15 @@ int main(int argc, char** argv)
     s = temp + y;
     e = (temp - s) + y;
   }
-  float error = PI-result;
-  printf("PI: %f\n", result);
-  printf("Error: %f\n", error);
-
-  printf("PI 2b %f\n", s);
-  printf("Error %f\n", PI-s);
-
   printf("1 - %f\n", result);
   printf("Erreur: %f\n", PI - result);
 
   result = sum(VctPts, 0, NbInt + 1)/(NbInt+1);
-  printf("2 - Diviser pour régner PI: %f\n", result);
-  printf("\tErreur: %f\n", PI - result);
+  printf("2 a) %f\n", result);
+  printf("Erreur: %f\n", PI - result);
+
+  printf("2 b) %f\n", s);
+  printf("Erreur %f\n", PI-s);
 
 //End
 
