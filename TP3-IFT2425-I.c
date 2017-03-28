@@ -327,12 +327,12 @@ int main(int argc, char** argv)
     }
   }
 
-  printf("1 - %f\n", result);
-  printf("Erreur: %f\n", PI - result);
+  printf("[1>Given_Order:] Pi=%lf Er=%lf LogEr=%lf\n",
+    result, PI - result, log(PI - result));
 
   result = sum(VctPts, 0, NbInt + 1)/(NbInt+1);
-  printf("2 a) %f\n", result);
-  printf("Erreur: %f\n", PI - result);
+  printf("[2>PairwiseSum:] Pi=%lf Er=%lf LogEr=%lf\n",
+    result, PI - result, log(PI - result));
 
   float temp = 0;
   float s = 0;
@@ -346,8 +346,8 @@ int main(int argc, char** argv)
     e = (temp - s) + y;
   }
   s /= NbInt + 1;
-  printf("2 b) %f\n", s);
-  printf("Erreur %f\n", PI-s);
+  printf("[3>KahanSummat:] Pi=%lf Er=%lf LogEr=%lf\n",
+    s, PI - s, log(PI - s));
 
 //End
 
