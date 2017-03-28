@@ -1,6 +1,6 @@
 //------------------------------------------------------
 // module  : Tp-IFT2425-I.c
-// author  : FranÁois Poitras et Guillaume Noel Martel
+// author  : Fran√ßois Poitras et Guillaume Noel Martel
 // date    : \today
 // version : 1.0
 // language: C++
@@ -54,7 +54,7 @@ int open_display()
 
 /************************************************************************/
 /* FABRIQUE_WINDOW()              */
-/* Cette fonction crÈe une fenetre X et l'affiche ‡ l'Ècran.         */
+/* Cette fonction cr√©e une fenetre X et l'affiche √† l'√©cran.         */
 /************************************************************************/
 Window fabrique_window(char *nom_fen, int x, int y, int width, int height, int zoom)
 {
@@ -104,7 +104,7 @@ Window fabrique_window(char *nom_fen, int x, int y, int width, int height, int z
 
 /****************************************************************************/
 /* CREE_XIMAGE()                  */
-/* CrÈe une XImage ‡ partir d'un tableau de float                           */
+/* Cr√©e une XImage √† partir d'un tableau de float                           */
 /* L'image peut subir un zoom.                */
 /****************************************************************************/
 XImage* cree_Ximage(float** mat, int z, int length, int width)
@@ -262,6 +262,12 @@ void SaveImagePgm(char* bruit, char* name, float** mat, int lgth, int wdth)
 //-------------------------//
 //---- Fonction Pour TP ---//
 //-------------------------//
+float sum(float* numbers, int start, int end)
+{
+  if (start + 1 == end) return numbers[start];
+  int half = (start + end) / 2;
+  return sum(numbers, start, half) + sum(numbers, half, end);
+}
 
 //----------------------------------------------------------
 //----------------------------------------------------------
@@ -338,6 +344,14 @@ int main(int argc, char** argv)
 
   printf("PI 2b %f\n", s);
   printf("Error %f\n", PI-s);
+
+  printf("1 - %f\n", result);
+  printf("Erreur: %f\n", PI - result);
+
+  result = sum(VctPts, 0, NbInt + 1)/(NbInt+1);
+  printf("2 - Diviser pour r√©gner PI: %f\n", result);
+  printf("\tErreur: %f\n", PI - result);
+
 //End
 
 
