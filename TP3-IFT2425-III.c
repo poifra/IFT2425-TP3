@@ -297,23 +297,22 @@ int main(int argc, char** argv)
 // PROGRAMME ---------------------------------------------------------------------
 //--------------------------------------------------------------------------------
 
-  int nbInt = 100000;
+  int nbInt = 10000000;
   if (argc > 1)  { nbInt = atoi(argv[1]); }
 
-  for (float mu = 2.5; mu < 4.0; mu += 0.0001)
+  double mu = 4.0;
+  for (i = 1; i <= 3; i++)
   {
-    int r = (int)(((mu - 2.5) / 1.5) * width);
-
-    float x_n = 0.5;
-    for (j = 0; j < 2 * nbInt; j++)
+    double sum = 0;
+    double x_0 = i * 0.2;
+    double x_n = x_0;
+    for (j = 0; j < nbInt; j++)
     {
       x_n = mu * x_n * (1 - x_n);
-      if (j >= nbInt)
-      {
-        int x = (int)(x_n * length);
-        Graph2D[length - 1 - x][r] = 0;
-      }
+      sum += sqrt(x_n);
     }
+    double x = 2 / ((1.0/nbInt)*sum);
+    printf("[%g0:>%f]\n", x_0, x);
   }
 
 //--------------------------------------------------------------------------------
