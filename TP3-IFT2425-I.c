@@ -345,6 +345,7 @@ int main(int argc, char** argv)
     s = temp + y;
     e = (temp - s) + y;
   }
+  s /= NbInt + 1;
   printf("2 b) %f\n", s);
   printf("Erreur %f\n", PI-s);
 
