@@ -327,6 +327,13 @@ int main(int argc, char** argv)
     }
   }
 
+  printf("1 - %f\n", result);
+  printf("Erreur: %f\n", PI - result);
+
+  result = sum(VctPts, 0, NbInt + 1)/(NbInt+1);
+  printf("2 a) %f\n", result);
+  printf("Erreur: %f\n", PI - result);
+
   float temp = 0;
   float s = 0;
   float e = 0;
@@ -338,13 +345,6 @@ int main(int argc, char** argv)
     s = temp + y;
     e = (temp - s) + y;
   }
-  printf("1 - %f\n", result);
-  printf("Erreur: %f\n", PI - result);
-
-  result = sum(VctPts, 0, NbInt + 1)/(NbInt+1);
-  printf("2 a) %f\n", result);
-  printf("Erreur: %f\n", PI - result);
-
   printf("2 b) %f\n", s);
   printf("Erreur %f\n", PI-s);
 
