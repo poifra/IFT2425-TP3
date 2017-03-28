@@ -320,10 +320,24 @@ int main(int argc, char** argv)
       result += (VctPts[i] + VctPts[i-1]) * intervalLen / 2;
     }
   }
+
+  float temp = 0;
+  float s = 0;
+  float e = 0;
+  float y = 0;
+  for (int i = 0; i <= NbInt; i++)
+  {
+    temp = s;
+    y = VctPts[i] + e;
+    s = temp + y;
+    e = (temp - s) + y;
+  }
   float error = PI-result;
   printf("PI: %f\n", result);
   printf("Error: %f\n", error);
-  printf("Error + our pie : %f\n",result + error);
+
+  printf("PI 2b %f\n", s);
+  printf("Error %f\n", PI-s);
 //End
 
 
