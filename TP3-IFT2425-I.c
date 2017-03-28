@@ -312,15 +312,18 @@ int main(int argc, char** argv)
 
   result = 0;
   float intervalLen = 1 / (float)NbInt;
-  for (int i = 0; i <= NbInt; i++) {
+  for (int i = 0; i <= NbInt; i++)
+  {
     float x = i / (float)NbInt;
     VctPts[i] = 4 * sqrt(1 - x*x);
     if (i > 0) {
       result += (VctPts[i] + VctPts[i-1]) * intervalLen / 2;
     }
   }
+  float error = PI-result;
   printf("PI: %f\n", result);
-
+  printf("Error: %f\n", error);
+  printf("Error + our pie : %f\n",result + error);
 //End
 
 
@@ -333,7 +336,7 @@ int main(int argc, char** argv)
     if (open_display() < 0)
       printf(" Impossible d'ouvrir une session graphique");
 
-    sprintf(nomfen_ppicture, "Graphe : ", "");
+    sprintf(nomfen_ppicture, "Graphe : ");
     win_ppicture = fabrique_window(nomfen_ppicture, 10, 10, width, length, zoom);
     x_ppicture = cree_Ximage(Graph2D, zoom, length, width);
 
